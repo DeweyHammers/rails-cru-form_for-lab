@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
   def show
-    @artist = find_artist(params)
+    find_artist(params)
   end
 
   def new
@@ -13,13 +13,12 @@ class ArtistsController < ApplicationController
   end
 
   def edit
-    @artist = find_artist(params)
+    find_artist(params)
   end
 
   def update
-    artist = find_artist(params)
-    artist.update(artist_params)
-    redirect_to artist_path(artist)
+    find_artist(params).update(artist_params)
+    redirect_to artist_path(@artist)
   end
 
   private
